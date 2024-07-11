@@ -9,13 +9,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.redAccent,
+      appBar: AppBar(
+        title: Text(
+          'DiceApp',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+        backgroundColor: Colors.redAccent,
+        centerTitle: true,
+        elevation: 10,
       ),
     );
   }
