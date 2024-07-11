@@ -33,17 +33,25 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         elevation: 10,
       ),
-      body: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: Image.asset('assets/images/dice1.png'),
-          ),
-          Expanded(
-            flex: 1,
-            child: Image.asset('assets/images/dice2.png'),
-          ),
-        ],
+      body: Center(
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, right: 10),
+                child: Image.asset('assets/images/dice1.png'),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10, right: 20),
+                child: Image.asset('assets/images/dice2.png'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
