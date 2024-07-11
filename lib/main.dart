@@ -14,9 +14,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+int leftDice = 5;
+int rightDice = 4;
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,17 +46,24 @@ class HomePage extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 10),
-                child: Image.asset('assets/images/dice1.png'),
+              child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    leftDice = 4;
+                  });
+                },
+                child: Image.asset('assets/images/dice$leftDice.png'),
               ),
             ),
             Expanded(
               flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 20),
-                child: Image.asset('assets/images/dice2.png'),
-              ),
+              child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      rightDice = 2;
+                    });
+                  },
+                  child: Image.asset('assets/images/dice$rightDice.png')),
             ),
           ],
         ),
