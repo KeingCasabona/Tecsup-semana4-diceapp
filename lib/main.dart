@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -42,30 +44,33 @@ class _HomePageState extends State<HomePage> {
         elevation: 10,
       ),
       body: Center(
-        child: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: TextButton(
-                onPressed: () {
-                  setState(() {
-                    leftDice = 4;
-                  });
-                },
-                child: Image.asset('assets/images/dice$leftDice.png'),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: TextButton(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: TextButton(
                   onPressed: () {
                     setState(() {
-                      rightDice = 2;
+                      leftDice = Random().nextInt(5) + 1;
                     });
                   },
-                  child: Image.asset('assets/images/dice$rightDice.png')),
-            ),
-          ],
+                  child: Image.asset('assets/images/dice$leftDice.png'),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        rightDice = Random().nextInt(5) + 1;
+                      });
+                    },
+                    child: Image.asset('assets/images/dice$rightDice.png')),
+              ),
+            ],
+          ),
         ),
       ),
     );
