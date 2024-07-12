@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.redAccent,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'DiceApp',
           style: TextStyle(
             color: Colors.white,
@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     setState(() {
                       leftDice = Random().nextInt(5) + 1;
+                      rightDice = Random().nextInt(5) + 1;
                     });
                   },
                   child: Image.asset('assets/images/dice$leftDice.png'),
@@ -65,6 +66,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       setState(() {
                         rightDice = Random().nextInt(5) + 1;
+                        leftDice = Random().nextInt(5) + 1;
                       });
                     },
                     child: Image.asset('assets/images/dice$rightDice.png')),
